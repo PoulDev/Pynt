@@ -15,15 +15,6 @@ from Drawer.drawer        import drawer, drawers
 
 logging.basicConfig(level=logging.DEBUG)
 
-def raw2json(raw : str) -> dict:
-    output = {}
-    for line in raw.splitlines():
-        sepIndex = line.index(':')
-        output[line[:sepIndex]] = line[sepIndex+2:]
-    return output
-
-def json2raw(jsonData : dict) -> str:
-    return "\n".join(f'{name}: {value}' for name, value in jsonData.items())
 
 class MainWindow(QMainWindow):
     def __init__(self):
